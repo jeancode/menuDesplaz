@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Menu Desplazable</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+	
+		$(document).ready(function(){
+			
+			$(".itemMenu").click(function(){
+				
+				var position = $(this).position();
+				
+				$(".itemMenu").css({
+					color:"black"
+				});
+				
+				$(this).css({
+					color:"white"
+				});
+				$("#despla").animate({
+					"top":position.top+"px"
+				},300);
+				
+			});
+		});
+		
+	</script>
+	<style>
+		
+		body{
+			margin: 0px;
+			font-family: sans-serif;
+		}
+		#contenido{
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			background: #fafafa;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+		#menu{
+			min-width: 200px;
+			min-height: 200px;
+			background: #d3d3d3;
+			border-radius:5px;
+			overflow: hidden;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			position: relative;
+			box-shadow: 0px 0px 10px #bcbcbc;
+			z-index: -2
+		}
+		.itemMenu{
+			width: 100%;
+			
+			min-height: 35px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-top: 5px;
+			margin-bottom: 5pX;
+			cursor: default;
+			-webkit-user-select:none;
+		}
+		.itemMenu:hover{
+			text-decoration: underline;
+		}
+		#despla{
+			position: absolute;
+			width: 100%;
+			height: 40px;
+			background: #20a1ff;
+			top: 10px;
+			z-index: -1;
+		}
+		
+	</style>
+</head>
+<body>
+	<div id="contenido">
+		
+		
+		<div id="menu">
+			<div id="despla"></div>
+			
+			<div class="itemMenu" style="color:white">Home</div>
+			<div class="itemMenu">Servicios</div>
+			<div class="itemMenu">Productos</div>
+			<div class="itemMenu">Contacto</div>
+			
+			
+		</div>
+	</div>
+</body>
+</html>
